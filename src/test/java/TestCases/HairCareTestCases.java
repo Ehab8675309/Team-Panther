@@ -1,6 +1,7 @@
 package TestCases;
 
 import Utilities.*;
+import org.openqa.selenium.By;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static Utilities.PageInitializer.hp;
@@ -10,7 +11,9 @@ public class HairCareTestCases extends CommonMethods {
     @Test
     public static void SortByAToZ(){
         CommonMethods.ClickOnCategoryMenu("hair care", hp.categoryMenu);
-        CommonMethods.wait(5);
+        CommonMethods.selectDropDownByVisibleText(hcp.sortByDropDown, "Name A - Z");
+        CommonMethods.smallWait();
+        CommonMethods.verifyThumbnailGridRowAtoZOrder(hcp.thumbnailGridRow);
     }
 
     @Test

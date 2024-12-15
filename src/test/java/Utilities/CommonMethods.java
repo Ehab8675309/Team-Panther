@@ -6,6 +6,7 @@ import net.datafaker.Faker;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -14,11 +15,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Base64;
-import java.util.List;
-import java.util.Set;
-
-
+import java.util.*;
 
 
 import javax.imageio.ImageIO;
@@ -57,72 +54,72 @@ public class CommonMethods extends PageInitializer {
         }
         return base64code;
     }
-    
-    public static void clearAndSendKeys(WebElement element, String text){
+
+    public static void clearAndSendKeys(WebElement element, String text) {
         element.clear();
         element.sendKeys(text);
     }
 
-    public static void wait(int seconds){
-        try{
-            Thread.sleep(seconds  * 1000);
-        }catch (InterruptedException e){
+    public static void wait(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void tinyWait(){
-        try{
+    public static void tinyWait() {
+        try {
             Thread.sleep(1000 * 3);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void smallWait(){
-        try{
+    public static void smallWait() {
+        try {
             Thread.sleep(1000 * 5);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void mediumWait(){
-        try{
+    public static void mediumWait() {
+        try {
             Thread.sleep(1000 * 15);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void largeWait(){
-        try{
+    public static void largeWait() {
+        try {
             Thread.sleep(1000 * 30);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void MAJOR_Wait(){
-        try{
+    public static void MAJOR_Wait() {
+        try {
             Thread.sleep(1000 * 119);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void hugeWait(){
-        try{
+    public static void hugeWait() {
+        try {
             Thread.sleep(1000 * 360);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public static void ultimate_Wait(){
-        try{
+    public static void ultimate_Wait() {
+        try {
             Thread.sleep(1000 * 600);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -167,7 +164,7 @@ public class CommonMethods extends PageInitializer {
             e.printStackTrace();
         }
     }
-    
+
     public static void acceptAlert() {
         try {
             Alert alert = BaseClass.getDriver().switchTo().alert();
@@ -196,7 +193,7 @@ public class CommonMethods extends PageInitializer {
         }
         return a;
     }
-    
+
     public static void alertSendKey(String text) {
         try {
             Alert alert = BaseClass.getDriver().switchTo().alert();
@@ -205,7 +202,7 @@ public class CommonMethods extends PageInitializer {
             e.printStackTrace();
         }
     }
-    
+
     public static void switchToIFrameByIndex(int iFrameIndex) {
         try {
             BaseClass.getDriver().switchTo().frame(iFrameIndex);
@@ -213,7 +210,7 @@ public class CommonMethods extends PageInitializer {
             e.printStackTrace();
         }
     }
-    
+
     public static void switchToIFrameByElement(WebElement iframeElement) {
         try {
             BaseClass.getDriver().switchTo().frame(iframeElement);
@@ -296,32 +293,42 @@ public class CommonMethods extends PageInitializer {
         actionObject().doubleClick(element).build().perform();
     }
 
-    public static Faker getFakerObject(){
+    public static Faker getFakerObject() {
         Faker faker = new Faker();
         return faker;
     }
 
-    public static String generateEmail(){
+    public static String generateEmail() {
         String email;
         String first = getFakerObject().name().firstName();
-        String last =  getFakerObject().name().lastName();
+        String last = getFakerObject().name().lastName();
         int number = getFakerObject().number().numberBetween(1, 100);
-        return email = first + "."+ last + number + "@gmail.com";
+        return email = first + "." + last + number + "@gmail.com";
     }
 
-    public static String geneateAddress(){
+    public static String geneateAddress() {
         return getFakerObject().address().fullAddress();
     }
 
-    public static void ClickOnCategoryMenu(String option, List<WebElement> CategoryMenu){
+    public static void ClickOnCategoryMenu(String option, List<WebElement> CategoryMenu) {
         tinyWait();
-        for(WebElement eachOption : CategoryMenu){
-            if(eachOption.getText().contains(option.toUpperCase())){    //The toUpperCase is to help make clicking easier.
+        for (WebElement eachOption : CategoryMenu) {
+            if (eachOption.getText().contains(option.toUpperCase())) {    //The toUpperCase is to help make clicking easier.
                 eachOption.click();
+                break;
             }
-            System.out.println(eachOption.getText());
         }
         tinyWait();
     }
 
+    public static void verifyThumbnailGridRowAtoZOrder(List<WebElement> list) {
+        ArrayList<String> productNames = new ArrayList<String>();
+        for (WebElement eachOption : list) {
+            productNames.add(eachOption.getText().substring(0, eachOption.getText().indexOf('$')));
+        }
+        for (int i = 0; i < productNames.size()-1; i++) {
+            Assert.assertTrue(productNames.get(i).charAt(0) < productNames.get(i + 1).charAt(0));{
+            }
+        }
+    }
 }
