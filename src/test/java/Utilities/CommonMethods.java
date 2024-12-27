@@ -326,9 +326,22 @@ public class CommonMethods extends PageInitializer {
         for (WebElement eachOption : list) {
             productNames.add(eachOption.getText().substring(0, eachOption.getText().indexOf('$')));
         }
-        for (int i = 0; i < productNames.size()-1; i++) {
-            Assert.assertTrue(productNames.get(i).charAt(0) < productNames.get(i + 1).charAt(0));{
+        for (int i = 0; i < productNames.size() - 1; i++) {
+            Assert.assertTrue(productNames.get(i).charAt(0) < productNames.get(i + 1).charAt(0));
+            {
             }
         }
     }
+
+    public static void ClickOnWebElementList(String option, List<WebElement> List) {
+        tinyWait();
+        for (WebElement eachOption : List) {
+            if (eachOption.getText().contains(option)) {
+                eachOption.click();
+                break;
+            }
+        }
+        tinyWait();
+    }
+
 }
