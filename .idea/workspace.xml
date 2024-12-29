@@ -21,21 +21,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ehab8675309"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ehab8675309&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Ehab8675309/Team-Panther.git",
-    "accountId": "30e1b173-6ced-40db-a37c-a28bca229b4a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ehab8675309/Team-Panther.git&quot;,
+    &quot;accountId&quot;: &quot;30e1b173-6ced-40db-a37c-a28bca229b4a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2qEyyGuEoPmDUJtY6gxxLy3PJ74" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,9 +46,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TestNG.HairCareTestCases.SortByAToZ.executor": "Run",
     "TestNG.HairCareTestCases.executor": "Run",
-    "git-widget-placeholder": "Ehab",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Ehab3/IdeaProjects/Cohort20_FrameWork",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -102,6 +103,8 @@
       <list>
         <item itemvalue="TestNG.HairCareTestCases.SortByAToZ" />
         <item itemvalue="TestNG.HairCareTestCases" />
+        <item itemvalue="TestNG.HairCareTestCases.SortByAToZ" />
+        <item itemvalue="TestNG.HairCareTestCases" />
       </list>
     </recent_temporary>
   </component>
@@ -115,5 +118,16 @@
       <updated>1734242286134</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
