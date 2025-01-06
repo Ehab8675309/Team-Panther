@@ -14,6 +14,7 @@ public class PageInitializer extends BaseClass {
     public static MakeupPage mup;
     public static MenPage menp;
     public static SkinCarePage scp;
+    public static ShoppingCartPage shcp;
 
     public static void initialize(){
         aaap = new ApperalAndccessoriesPage();
@@ -24,7 +25,7 @@ public class PageInitializer extends BaseClass {
         mup = new MakeupPage();
         menp = new MenPage();
         scp = new SkinCarePage();
-
+        shcp = new ShoppingCartPage();
     }
 
 }
