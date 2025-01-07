@@ -16,6 +16,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.NoSuchElementException;
 
 
 import javax.imageio.ImageIO;
@@ -342,6 +343,44 @@ public class CommonMethods extends PageInitializer {
             }
         }
         tinyWait();
+    }
+
+    public static void searchUsingKeyword(String keyword, WebElement searchBar, WebElement searchButton){
+        searchBar.click();
+        searchBar.clear();
+        searchBar.sendKeys(keyword);
+        searchButton.click();
+    }
+
+    public static void verifyWhetherSearchResultsContainsKeywordEntered(String keyword, WebElement searchResults){
+        tinyWait();
+        List<WebElement> resultsList = new ArrayList<>();
+        resultsList.add(searchResults);
+        for (WebElement eachOption : resultsList){
+            String productName = eachOption.getText();
+            Assert.assertTrue(productName.contains(keyword.toUpperCase()), "Product name does not contain the keyword entered: " + keyword);
+        }
+        System.out.println("All search results contain the keyword entered: " + keyword);
+        tinyWait();
+    }
+
+    public static void verifyWhetherAMessageIsDisplayedForNoResults(WebElement noResultsMessage){
+        Assert.assertTrue(noResultsMessage.isDisplayed(), "No messages are displayed for no results.");
+        System.out.println("A message is displayed for no results as expected.");
+    }
+
+    public static void verifyWhetherProductDetailsIsDisplayedCorrectly(WebElement productImage, WebElement productTitle, String expectedTitleOfProduct, WebElement productPrice, String expectedPriceOfProduct){
+        Assert.assertTrue(productImage.isDisplayed(), "Product image should be displayed.");
+        Assert.assertTrue(productTitle.isDisplayed(), "Product title should be displayed.");
+        Assert.assertEquals(productTitle.getText(), expectedTitleOfProduct, "Product title should match.");
+        Assert.assertTrue(productPrice.isDisplayed(), "Product price should be displayed");
+        Assert.assertEquals(productPrice.getText(), expectedPriceOfProduct, "Product price should match");
+        System.out.println("All information regarding the product is displayed correctly.");
+    }
+
+    public static void verifyWhetherTotalPriceIsDisplayedCorrectly(WebElement cartValue, String expectedTotalPrice){
+        Assert.assertEquals(cartValue.getText(), expectedTotalPrice, "Total price should be: " + expectedTotalPrice);
+        System.out.println("Total price is displayed correctly.");
     }
 
 }
